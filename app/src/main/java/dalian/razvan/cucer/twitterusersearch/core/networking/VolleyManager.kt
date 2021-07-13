@@ -6,6 +6,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import dalian.razvan.cucer.twitterusersearch.core.networking.error.ErrorResponse
 
 object VolleyManager: API {
@@ -23,15 +24,24 @@ object VolleyManager: API {
                 callback.onSuccess(it)
             },
             {
+                var error = ""
+
+//                //Error is sometimes HTML - to prevent application crashes we catch it if it is HTML
+//                //https://api.twitter.com/2/users/1304048176790372354/tweets/ - example of HTML error
+//                try {
+//                    error = parseError(it)
+//                } catch (exception: JsonSyntaxException) {
+//                    error = "Error while getting tweets"
+//                }
                 callback.onError(parseError(it))
             }
         ))
     }
 
-    private fun parseError(it: VolleyError): String = ErrorResponse(Gson().fromJson(it.localizedMessage?:"", ErrorResponse::class.java)).toString()
+    private fun parseError(it: VolleyError): String = ErrorResponse(Gson().fromJson(String(it.networkResponse.data), ErrorResponse::class.java)).toString()
 
     override suspend fun getUser(query: String, callback: APICallbackInterface) {
-        get(Endpoints.BASE_URL + Endpoints.USERS + Endpoints.BY_USERNAMES + query, callback)
+        get(Endpoints.BASE_URL + Endpoints.USERS + Endpoints.BY_USERNAMES + query + Endpoints.WITH_PROFILE_PICTURES, callback)
     }
 
     override suspend fun getUserTweets(userId: String, callback: APICallbackInterface) {

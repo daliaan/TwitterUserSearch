@@ -60,6 +60,9 @@ dependencies {
     implementation "org.koin:koin-android:2.1.1"
     implementation "org.koin:koin-android-viewmodel:2.1.1"
 
+    //coil
+    implementation "io.coil-kt:coil:1.1.1"
+
     //networking
     implementation 'com.android.volley:volley:1.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'

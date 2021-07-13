@@ -1,4 +1,4 @@
-package dalian.razvan.cucer.twitterusersearch.screens.list
+package dalian.razvan.cucer.twitterusersearch.screens.search.list
 
 import dalian.razvan.cucer.twitterusersearch.core.repository.models.TwitterUser
 

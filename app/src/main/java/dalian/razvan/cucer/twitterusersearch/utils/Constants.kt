@@ -6,6 +6,7 @@ object Constants {
     const val ID = "id"
     const val NAME = "name"
     const val USERNAME = "username"
+    const val PROFILE_PICTURE = "profile_image_url"
     const val TEXT = "text"
     const val ERRORS = "errors"
     const val TITLE = "title"
