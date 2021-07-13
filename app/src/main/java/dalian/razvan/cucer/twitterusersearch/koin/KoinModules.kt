@@ -6,7 +6,7 @@ import dalian.razvan.cucer.twitterusersearch.repository.Repository
 import dalian.razvan.cucer.twitterusersearch.repository.RepositoryImpl
 import org.koin.dsl.module
 
-
+val viewModelsModule = module{}
 
 val repositoryModule = module {
     single { RepositoryImpl(get()) as Repository }
