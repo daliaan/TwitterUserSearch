@@ -1,4 +1,4 @@
-package dalian.razvan.cucer.twitterusersearch.networking.error
+package dalian.razvan.cucer.twitterusersearch.core.networking.error
 
 import com.google.gson.annotations.SerializedName
 import dalian.razvan.cucer.twitterusersearch.utils.Constants

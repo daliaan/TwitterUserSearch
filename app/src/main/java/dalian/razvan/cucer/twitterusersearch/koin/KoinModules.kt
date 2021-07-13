@@ -1,9 +1,9 @@
 package dalian.razvan.cucer.twitterusersearch.koin
 
-import dalian.razvan.cucer.twitterusersearch.networking.API
-import dalian.razvan.cucer.twitterusersearch.networking.VolleyManager
-import dalian.razvan.cucer.twitterusersearch.repository.Repository
-import dalian.razvan.cucer.twitterusersearch.repository.RepositoryImpl
+import dalian.razvan.cucer.twitterusersearch.core.networking.API
+import dalian.razvan.cucer.twitterusersearch.core.networking.VolleyManager
+import dalian.razvan.cucer.twitterusersearch.core.repository.Repository
+import dalian.razvan.cucer.twitterusersearch.core.repository.RepositoryImpl
 import dalian.razvan.cucer.twitterusersearch.screens.details.UserDetailsViewModel
 import dalian.razvan.cucer.twitterusersearch.screens.search.UserSearchViewModel
 import org.koin.dsl.module

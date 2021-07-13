@@ -1,7 +1,7 @@
 package dalian.razvan.cucer.twitterusersearch.screens.details
 
 import dalian.razvan.cucer.twitterusersearch.R
-import dalian.razvan.cucer.twitterusersearch.base.BaseFragment
+import dalian.razvan.cucer.twitterusersearch.core.base.BaseFragment
 import dalian.razvan.cucer.twitterusersearch.databinding.FragmentUserDetailsBinding
 import org.koin.core.inject
 

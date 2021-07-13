@@ -1,4 +1,4 @@
-package dalian.razvan.cucer.twitterusersearch.networking
+package dalian.razvan.cucer.twitterusersearch.core.networking
 
 object Endpoints {
 

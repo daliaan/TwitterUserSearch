@@ -13,6 +13,7 @@ object Constants {
     const val TYPE = "type"
     const val PARAMETERS = "parameters"
     const val MESSAGE = "message"
+    const val DATA = "data"
 
     //Twitter API secrets
     const val API_KEY = "EcFhYa4WWOLGKFDrSOCyoBU4X"

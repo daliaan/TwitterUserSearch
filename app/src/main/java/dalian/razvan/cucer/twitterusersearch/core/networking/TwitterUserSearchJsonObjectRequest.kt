@@ -1,4 +1,4 @@
-package dalian.razvan.cucer.twitterusersearch.networking
+package dalian.razvan.cucer.twitterusersearch.core.networking
 
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest

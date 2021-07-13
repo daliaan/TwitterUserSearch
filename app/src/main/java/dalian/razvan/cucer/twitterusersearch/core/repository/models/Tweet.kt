@@ -1,4 +1,4 @@
-package dalian.razvan.cucer.twitterusersearch.repository.models
+package dalian.razvan.cucer.twitterusersearch.core.repository.models
 
 import com.google.gson.annotations.SerializedName
 import dalian.razvan.cucer.twitterusersearch.utils.Constants

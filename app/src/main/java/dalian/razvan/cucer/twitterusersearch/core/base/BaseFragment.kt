@@ -1,4 +1,4 @@
-package dalian.razvan.cucer.twitterusersearch.base
+package dalian.razvan.cucer.twitterusersearch.core.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
