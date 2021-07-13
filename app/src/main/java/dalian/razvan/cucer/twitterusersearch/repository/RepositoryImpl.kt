@@ -1,4 +1,6 @@
 package dalian.razvan.cucer.twitterusersearch.repository
 
-class RepositoryImpl {
+import dalian.razvan.cucer.twitterusersearch.networking.API
+
+class RepositoryImpl(api: API) {
 }

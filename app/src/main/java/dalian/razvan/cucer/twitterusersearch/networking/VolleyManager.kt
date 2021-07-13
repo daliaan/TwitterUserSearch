@@ -15,7 +15,7 @@ object VolleyManager: API {
         queue = Volley.newRequestQueue(context)
     }
 
-    private suspend fun get(url: String, callback: APICallbackInterface) {
+    private fun get(url: String, callback: APICallbackInterface) {
         queue.add(TwitterUserSearchJsonObjectRequest(url, null,
             {
                 callback.onSuccess(it)
