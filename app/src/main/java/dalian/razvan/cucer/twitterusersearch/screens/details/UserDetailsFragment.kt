@@ -1,4 +1,6 @@
 package dalian.razvan.cucer.twitterusersearch.screens.details
 
-class UserDetailsFragment {
+import androidx.fragment.app.Fragment
+
+class UserDetailsFragment: Fragment() {
 }
