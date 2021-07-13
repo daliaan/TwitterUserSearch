@@ -26,14 +26,12 @@ object VolleyManager: API {
             {
                 var error = ""
 
-//                //Error is sometimes HTML - to prevent application crashes we catch it if it is HTML
-//                //https://api.twitter.com/2/users/1304048176790372354/tweets/ - example of HTML error
-//                try {
-//                    error = parseError(it)
-//                } catch (exception: JsonSyntaxException) {
-//                    error = "Error while getting tweets"
-//                }
-                callback.onError(parseError(it))
+                try {
+                    error = parseError(it)
+                } catch (exception: JsonSyntaxException) {
+                    error = "Error while getting information from server."
+                }
+                callback.onError(error)
             }
         ))
     }
