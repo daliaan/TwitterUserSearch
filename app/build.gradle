@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,7 +46,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.0.4"
 
     //databinding
-    annotationProcessor 'com.android.databinding:compiler:4.0.0'
+    kapt 'com.android.databinding:compiler:4.0.0'
 
     //navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"

@@ -17,7 +17,18 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="56dp"
+            android:id="@+id/username"
+            android:singleLine="true"
+            android:lines="1"
+            android:maxLines="1"
+            android:theme="@style/Platform.MaterialComponents"
+            android:hint="@string/search_for_users"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

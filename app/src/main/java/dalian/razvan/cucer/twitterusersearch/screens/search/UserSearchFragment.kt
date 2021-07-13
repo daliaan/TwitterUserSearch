@@ -1,17 +1,13 @@
 package dalian.razvan.cucer.twitterusersearch.screens.search
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import dalian.razvan.cucer.twitterusersearch.R
+import dalian.razvan.cucer.twitterusersearch.base.BaseFragment
+import dalian.razvan.cucer.twitterusersearch.databinding.FragmentUserSearchBinding
+import org.koin.core.inject
 
-class UserSearchFragment: Fragment() {
+class UserSearchFragment: BaseFragment<UserSearchViewModel, FragmentUserSearchBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View?  = inflater.inflate(R.layout.fragment_user_search, container, false)
+    override val viewModel: UserSearchViewModel by inject()
+
+    override fun whichLayout(): Int = R.layout.fragment_user_search
 }
