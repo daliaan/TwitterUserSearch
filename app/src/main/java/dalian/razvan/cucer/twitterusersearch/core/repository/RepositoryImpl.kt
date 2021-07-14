@@ -24,14 +24,7 @@ class RepositoryImpl(val api: API): Repository {
     ) {
         api.getUser(query, object : APICallbackInterface{
             override fun onSuccess(jsonObject: JSONObject) {
-                users.clear()
-                Log.e(javaClass.simpleName, jsonObject.toString())
-                val jsonArray = jsonObject.optJSONArray(Constants.DATA)
-                jsonArray?.let {
-                    (0 until it.length()).forEach { i ->
-                        users.add(TwitterUser(it.optJSONObject(i)))
-                    }
-                }
+                parseUsersResponse(jsonObject)
                 callback.setItems(users)
                 if (users.size == 0) {
                     errorCallback.onError("No users found!")
@@ -47,17 +40,21 @@ class RepositoryImpl(val api: API): Repository {
         })
     }
 
+    private fun parseUsersResponse(jsonObject: JSONObject) {
+        users.clear()
+        Log.e(javaClass.simpleName, jsonObject.toString())
+        val jsonArray = jsonObject.optJSONArray(Constants.DATA)
+        jsonArray?.let {
+            (0 until it.length()).forEach { i ->
+                users.add(TwitterUser(it.optJSONObject(i)))
+            }
+        }
+    }
+
     override suspend fun getUserTweets(callback: UserTweetsCallback, errorCallback: ErrorCallback) {
         api.getUserTweets(selectedUser.id, object : APICallbackInterface{
             override fun onSuccess(jsonObject: JSONObject) {
-                userTweets.clear()
-                Log.e(javaClass.simpleName, jsonObject.toString())
-                val jsonArray = jsonObject.optJSONArray(Constants.DATA)
-                jsonArray?.let {
-                    (0 until it.length()).forEach { i ->
-                        userTweets.add(Tweet(it.optJSONObject(i)))
-                    }
-                }
+                parseUserTweets(jsonObject)
                 callback.setItems(userTweets)
                 if (userTweets.size == 0) {
                     errorCallback.onError("User didn't tweet.")
@@ -69,6 +66,17 @@ class RepositoryImpl(val api: API): Repository {
             }
 
         })
+    }
+
+    private fun parseUserTweets(jsonObject: JSONObject) {
+        userTweets.clear()
+        Log.e(javaClass.simpleName, jsonObject.toString())
+        val jsonArray = jsonObject.optJSONArray(Constants.DATA)
+        jsonArray?.let {
+            (0 until it.length()).forEach { i ->
+                userTweets.add(Tweet(it.optJSONObject(i)))
+            }
+        }
     }
 
     override fun setSelectedUser(user: TwitterUser) {

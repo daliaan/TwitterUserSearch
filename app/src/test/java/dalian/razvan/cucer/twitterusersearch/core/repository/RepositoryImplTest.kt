@@ -16,23 +16,34 @@ import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
 
 class RepositoryImplTest {
+
     @Mock
     lateinit var user1: TwitterUser
     @Mock
     lateinit var user2: TwitterUser
     @Mock
     lateinit var repository: RepositoryImpl
+    @Mock
+    lateinit var api: API
+    val usersList = arrayListOf<TwitterUser>()
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
         user1 = TwitterUser(mock(JSONObject::class.java))
         user2 = TwitterUser(mock(JSONObject::class.java))
-        repository = RepositoryImpl(mock(API::class.java))
+        api = mock(API::class.java)
+        repository = RepositoryImpl(api)
+        for (i in 0 until 10) {
+            usersList.add(user1)
+            usersList.add(user2)
+        }
     }
 
     @After
-    fun tearDown() {}
+    fun tearDown() {
+
+    }
 
     @Test
     fun data_storeSelectedUser_pass() {
@@ -44,5 +55,12 @@ class RepositoryImplTest {
     fun data_storeSelectedUser_doesntPass() {
         repository.setSelectedUser(user1)
         Assert.assertNotEquals(user2, repository.getSelectedUser())
+    }
+
+    @Test
+    fun data_loadUsers_pass() {
+        runBlocking {
+            `when`(repository.parseUsersResponse(JSONObject()))
+        }
     }
 }
